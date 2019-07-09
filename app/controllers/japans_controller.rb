@@ -15,8 +15,27 @@ class JapansController < ApplicationController
   def load
     
     testi = JapCar.new
-    @titre = testi.perform
-    @titre
+    @liens = testi.perform
+    @liens
+
+    @existant = []
+    voiture_deja = Japan.all
+
+    voiture_deja.each do |f|
+      @existant << f.numcar
+    end
+
+    @new_car = []
+    @new_car = @liens - @existant 
+    @new_car.each do |f| 
+     Japan.create!(numcar: f, model: "bmw")    
+    end
+
+    puts @liens.size
+    puts @existant.size
+    puts @new_car.size
+  
+    @po = Japan.all.size 
 
   end
 
