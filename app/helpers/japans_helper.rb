@@ -1,0 +1,2 @@
+module JapansHelper
+end

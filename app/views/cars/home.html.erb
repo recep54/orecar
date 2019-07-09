@@ -1,0 +1,112 @@
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse " id="navbarNavDropdown">
+    <ul class="navbar-nav " >
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+
+
+  </div>
+</nav>
+
+<div class="position-relative overflow-hidden p-3 p-md-5  text-center bg-light">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal">Punny headline</h1>
+    <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
+    <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+  </div>
+  <div class="product-device shadow-sm d-none d-md-block"></div>
+  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+<div class="container">
+<div class="row col-lg-8">
+                  <div class="col-md-6">
+                    <dl class="b-goods-f__descr row">
+                      <div id="cercle"></div><dt class="b-goods-f__descr-title col-md-5">Registration</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">2019</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">Brand / Model</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">BMW 3 Series</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">Body Style</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">Sedan</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">Color</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">Fanta Red</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">Fuel Type</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">Gasoline</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">Engine</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">255 hp @5000 rpm</dd>
+                    </dl>
+                  </div>
+                  <div class="col-md-6">
+                    <dl class="b-goods-f__descr row">
+                      <dt class="b-goods-f__descr-title col-md-5">Condition</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">New</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">Mileage</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">20,000 mi</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">Transmission</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">8-Speed A/T</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">Drivetrain</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">All Wheels Drive</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">Interior Color</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">Black / Red</dd>
+                      <dt class="b-goods-f__descr-title col-md-5">No. Of Seats</dt>
+                      <dd class="b-goods-f__descr-info col-md-7">5</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+
+<ul>
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    </li>
+
+    <li>
+      Voici ton email : <%= current_user.email %>
+    </li>
+
+   
+
+    <li>
+      <%= link_to "Edit email / password", edit_user_registration_path %>
+    </li>
+
+  <% else %>
+    <li>    
+      <%= link_to "Sign in", new_user_session_path %>
+    </li>
+
+    <li>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </li>
+
+  <% end %>
+</ul>
+
+<h2>load</h2>
+
+<%= link_to "Rechargement", load_path %>
+
+<h3>heyyy</h3>

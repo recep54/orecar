@@ -1,0 +1,17 @@
+<%= form_with(model: japan, local: true) do |form| %>
+  <% if japan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(japan.errors.count, "error") %> prohibited this japan from being saved:</h2>
+
+      <ul>
+      <% japan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+class CreateJapans < ActiveRecord::Migration[5.2]
+  def change
+    create_table :japans do |t|
+      t.integer :numcar
+      t.string :model
+
+      t.timestamps
+    end
+  end
+end
