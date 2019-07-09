@@ -13,6 +13,11 @@ class JapansController < ApplicationController
   end
 
   def load
+    @bmw = Japan.all
+    @bmw_size = @bmw.size
+  end
+
+  def bmw
     
     testi = JapCar.new
     @liens = testi.perform

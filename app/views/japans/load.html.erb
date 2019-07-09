@@ -1,29 +1,6 @@
 <h1>rechargement</h1>
 
-<%#= @liens %>
 
-<%#= "http://encheres.clubimport.fr/auctions/?p=project/lot&id=551781934&s"[57 .. -3] %>
-<%# a = ["551841877", "551841561", "551830947", "551829292"] %>
-
-<%# a.each do |f| %>
-<%# Japan.create!(numcar: f, model: "bmw") %>
-<%# end %>
-
-<%#= @po %>
-<h2>heu</h2>
-<%#= @liens.size %>
-<h2>exitant</h2>
-<%#= @existant.size %>
-<h2>new</h2>
-<%#= @new_car.size %>
-
-<% @liens = [2,4,5,6]%>
-<%= @liens %><br/>
-
-<% @exitant = [2,4,5]%>
-<%= @exitant %><br/>
-
-<% @new = @liens - @exitant%>
-<%= @new %><br/>
-
-<h2>kflrjffffffffff</h2>
+<p>nombre de nouveau bmw </p>
+<%= @bmw_size %>
+<%= link_to "Rechargement bmw", load_bmw_path %>

@@ -2,10 +2,10 @@ class JapCar
 
     def perform
       require 'watir'
-      
+      require 'pry'
 
       if Rails.env.production?
-        @browser = Watir::Browser.new :chrome #, headless: true
+        @browser = Watir::Browser.new :chrome, headless: true
         go
       else
         @browser = Watir::Browser.new :firefox
@@ -24,7 +24,7 @@ class JapCar
     end
 
     def connection
-      @browser.goto"http://encheres.clubimport.fr/auctions/?p=project/lot&id=550986806&s"
+      @browser.goto"http://encheres.clubimport.fr/"
       mail = @browser.text_field(id: "usr_name") # select barre de recherche
       mail.set("Manada") # search
 
@@ -52,10 +52,30 @@ class JapCar
     @c = 2
     sleep(2)
     @liens = []
-  # @a.times do
-      1.times do   
+    ml = @browser.as
+    ml.each do |f|
+      if f.text == "100"
+        f.click
+      end
+    end
+
+
+    @a.times do
+
+      # 1.times do   
         lien
-    @browser.goto "javascript:page(#{@c})"
+
+        l = @browser.as 
+        l.each do |f|
+          
+          if f.href == "javascript:page(#{@c})"
+            f.click
+            break
+          end
+        end
+        puts @c
+    # @browser.goto "javascript:page(#{@c})"
+    # binding.pry
         sleep(2)
 
     # lien
