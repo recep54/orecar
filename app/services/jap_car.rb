@@ -5,7 +5,7 @@ class JapCar
       
 
       if Rails.env.production?
-        @browser = Watir::Browser.new :chrome, headless: true
+        @browser = Watir::Browser.new :chrome #, headless: true
         go
       else
         @browser = Watir::Browser.new :firefox
