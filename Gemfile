@@ -39,6 +39,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'devise'
 gem 'watir'
+gem 'pry'
 
 
 

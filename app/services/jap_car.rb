@@ -2,6 +2,7 @@ class JapCar
 
     def perform
       require 'watir'
+      
 
       if Rails.env.production?
         @browser = Watir::Browser.new :chrome, headless: true
@@ -54,8 +55,9 @@ class JapCar
   # @a.times do
       1.times do   
         lien
-    # @browser.goto "javascript:page(#{@c})"
+    @browser.goto "javascript:page(#{@c})"
         sleep(2)
+
     # lien
     # @browser.element(:xpath => "/html/body/table/tbody/tr[2]/td/table[1]/tbody/tr[2]/td/form/table/tbody/tr/td[2]/table/tbody/tr/td/a[#{b}]").click
         @c += 1
