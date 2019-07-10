@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_06_26_194955) do
   create_table "japans", force: :cascade do |t|
     t.integer "numcar"
     t.string "model"
+    t.text "foto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

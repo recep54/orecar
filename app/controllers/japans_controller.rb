@@ -10,11 +10,31 @@ class JapansController < ApplicationController
   # GET /japans/1
   # GET /japans/1.json
   def show
+    @japan = Japan.find(params[:id])
+  end
+
+  def image_load
+    @all_car = Japan.all
+    
+    moi = Japan.last
+    @numcar_serch = moi.numcar
+    @fotoo = ImgCar.new.perform(@numcar_serch)
+    puts @fotoo 
+
+    moi.update!(foto: @fotoo)
   end
 
   def load
     @bmw = Japan.all
     @bmw_size = @bmw.size
+
+    @oi = 0
+    @bmw.each do |f|
+      if f.foto == nil
+        @oi += 1
+      end
+    end
+
   end
 
   def bmw

@@ -60,9 +60,9 @@ class JapCar
     end
 
 
-    @a.times do
+    # @a.times do
 
-      # 1.times do   
+      1.times do   
         lien
 
         l = @browser.as 
