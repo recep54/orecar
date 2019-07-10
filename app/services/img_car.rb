@@ -1,26 +1,23 @@
 class ImgCar
 
-  def perform(num)
-    @num = num
+  def perform
     require 'watir'
       require 'pry'
 
       if Rails.env.production?
         @browser = Watir::Browser.new :chrome, headless: true
-        go
+        connection
+        
       else
         @browser = Watir::Browser.new :firefox
-        go
+        connection
+        
       end
-
+      
       @foto    
   end
 
-  def go
-    connection
-    fotos
-    @browser.close
-  end
+  
 
   def connection
     @browser.goto"http://encheres.clubimport.fr"
@@ -33,18 +30,23 @@ class ImgCar
     mdp.send_keys(:enter)
     sleep(4)
 
-    @browser.goto"http://encheres.clubimport.fr/auctions/?p=project/lot&id=#{@num}&s"
+    
   end
 
-  def fotos
+  def fotos(num)
+    @num = num
+    @browser.goto"http://encheres.clubimport.fr/auctions/?p=project/lot&id=#{@num}&s"
     b = @browser.td(:xpath => "/html/body/table/tbody/tr[2]/td/table[1]/tbody/tr[2]/td/table/tbody/tr[2]/td[1]/table/tbody/tr/td[1]/table/tbody/tr[1]/td/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td").as
     @foto = ""
     b.each do |f|
       @foto += f.href + ","
     end
+    @foto
   end
 
-
+  def finn
+    @browser.close
+  end
 
 
 end

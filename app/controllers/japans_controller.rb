@@ -15,13 +15,30 @@ class JapansController < ApplicationController
 
   def image_load
     @all_car = Japan.all
+    @nofoto = []
     
-    moi = Japan.last
-    @numcar_serch = moi.numcar
-    @fotoo = ImgCar.new.perform(@numcar_serch)
-    puts @fotoo 
+    @all_car.each do |f|
+      if f.foto == nil
+        @nofoto << f 
+      end
+    end
 
-    moi.update!(foto: @fotoo)
+    
+    @hi = ImgCar.new
+    @hi.perform
+
+    @nofoto.each do |f|
+      
+      if f.foto == nil
+        puts f.numcar
+        @numcar_serch = f.numcar
+        @fotoo = @hi.fotos(@numcar_serch)
+        f.update!(foto: @fotoo)
+      end
+    end
+    @hi.finn
+
+    
   end
 
   def load
