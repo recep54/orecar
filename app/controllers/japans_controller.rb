@@ -4,13 +4,41 @@ class JapansController < ApplicationController
   # GET /japans
   # GET /japans.json
   def index
-    @japans = Japan.all
+    @japanss = Japan.all
+    @japans =[]
+    @japanss.each do |f|
+      if f.validee
+        @japans << f
+      end
+    end
   end
 
   # GET /japans/1
   # GET /japans/1.json
-  def show
+  def selection
     @japan = Japan.find(params[:id])
+    puts @japan.selectee
+
+    if @japan.selectee == true
+      puts "heu"
+      a = params[:id].to_i
+      a += 1
+      redirect_to selection_path(a)
+    else 
+      puts "police"
+      @fo = @japan.foto.split(",")
+    end
+  end
+
+  def show
+  end
+
+  def validat
+    puts "hello"
+    puts params
+    @japan = Japan.find(params[:id])
+    puts @japan
+    @japan.update!(selectee: true, validee: true)
   end
 
   def image_load
@@ -22,6 +50,7 @@ class JapansController < ApplicationController
         @nofoto << f 
       end
     end
+
 
     
     @hi = ImgCar.new
@@ -49,6 +78,13 @@ class JapansController < ApplicationController
     @bmw.each do |f|
       if f.foto == nil
         @oi += 1
+      end
+    end
+
+    @ol = 0
+    @bmw.each do |f|
+      if f.validee
+        @ol += 1
       end
     end
 
@@ -109,15 +145,18 @@ class JapansController < ApplicationController
   # PATCH/PUT /japans/1
   # PATCH/PUT /japans/1.json
   def update
-    respond_to do |format|
-      if @japan.update(japan_params)
-        format.html { redirect_to @japan, notice: 'Japan was successfully updated.' }
-        format.json { render :show, status: :ok, location: @japan }
-      else
-        format.html { render :edit }
-        format.json { render json: @japan.errors, status: :unprocessable_entity }
-      end
+    choix = params["commit"]
+    # puts "hello"
+    @japan = Japan.find(params[:id])
+    puts @japan
+    if choix == "droite"
+      @japan.update!(selectee: true, validee: false)
+    else
+      @japan.update!(selectee: true, validee: true)
     end
+    a = params[:id].to_i
+    a += 1
+    redirect_to selection_path(a)
   end
 
   # DELETE /japans/1

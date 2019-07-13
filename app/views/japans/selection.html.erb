@@ -1,0 +1,17 @@
+<%= @japan.numcar %><br/><br/>
+<% @fo.each do |f| %>
+   <img src=<%= f%> >
+<% end %>
+
+
+<%= form_for @japan do |f| %>
+  <%= f.submit "gauche" %>
+<% end %>
+
+<hr>
+
+<%= form_for @japan do |f| %>
+  <%= f.submit "droite" %>
+<% end %>
+
+<hr>
